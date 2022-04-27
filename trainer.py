@@ -2,6 +2,7 @@ import os
 import time
 import logging
 import argparse
+import torch
 
 from utils.train import train
 from utils.hparams import HParam
@@ -56,4 +57,5 @@ if __name__ == '__main__':
     trainloader = create_dataloader(hp, args, train=True)
     testloader = create_dataloader(hp, args, train=False)
 
-    train(args, pt_dir, chkpt_path, trainloader, testloader, writer, logger, hp, hp_str)
+    with torch.cuda.amp.autocast():
+        train(args, pt_dir, chkpt_path, trainloader, testloader, writer, logger, hp, hp_str)
