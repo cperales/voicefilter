@@ -149,7 +149,9 @@ if __name__ == '__main__':
     arr = list(range(10**5))
     with Pool(cpu_num) as p:
         r = list(tqdm.tqdm(p.imap(train_wrapper, arr), total=len(arr)))
+        # r = tqdm.tqdm(p.imap(train_wrapper, arr), total=len(arr))
 
     arr = list(range(10**2))
     with Pool(cpu_num) as p:
         r = list(tqdm.tqdm(p.imap(test_wrapper, arr), total=len(arr)))
+        # r = tqdm.tqdm(p.imap(test_wrapper, arr), total=len(arr))
