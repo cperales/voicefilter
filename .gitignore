@@ -3,7 +3,9 @@
 config/*
 !config/default.yaml
 
-
+# Data and temp files
+data/
+output_dir/
 temp/
 chkpt/
 logs/
@@ -72,6 +74,9 @@ instance/
 
 # Scrapy stuff:
 .scrapy
+
+# IDL stuff:
+.vscode
 
 # Sphinx documentation
 docs/_build/
